@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Nicollas Feitosa">
+    <title>Cadastro · Alunos</title>
+
+    <link rel="canonical" href="">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="headers.css" rel="stylesheet"> -->
+    <style>
+        .btn-indigo {
+            color: #fff;
+            background-color: #6C63FF;
+            border-color: #6C63FF;
+        }
+
+        .btn-indigo:hover {
+            color: #fff;
+            background-color: #564FCC;
+            border-color: #564FCC;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Svg Icons Nesting -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+            <title>Bootstrap</title>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
+            </path>
+        </symbol>
+        <symbol id="home" viewBox="0 0 16 16">
+            <path
+                d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
+        </symbol>
+        <symbol id="speedometer2" viewBox="0 0 16 16">
+            <path
+                d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
+            <path fill-rule="evenodd"
+                d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" />
+        </symbol>
+        <symbol id="table" viewBox="0 0 16 16">
+            <path
+                d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
+        </symbol>
+        <symbol id="people-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+        </symbol>
+        <symbol id="grid" viewBox="0 0 16 16">
+            <path
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+        </symbol>
+    </svg>
+
+    <header>
+        <div class="px-3 py-2 bg-dark text-white">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/"
+                        class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="40" height="32" role="img" fill="currentColor"viewBox="0 0 24 24"><path d="M22.1987 18.498l-9.7699 5.5022v-4.2855l6.0872-3.3338 3.6826 2.117zm.6683-.6026V6.3884l-3.5752 2.0544v7.396zm-21.0657.6026l9.7699 5.5022v-4.2855L5.484 16.3809l-3.6826 2.117zm-.6683-.6026V6.3884l3.5751 2.0544v7.396zm.4183-12.2515l10.0199-5.644v4.1434L5.152 7.6586l-.0489.028zm20.8975 0l-10.02-5.644v4.1434l6.4192 3.5154.0489.028 3.5518-2.0427zm-10.8775 13.096l-6.0056-3.2873V8.9384l6.0054 3.4525v6.349zm.8575 0l6.0053-3.2873V8.9384l-6.0053 3.4525zM5.9724 8.1845l6.0287-3.3015L18.03 8.1845l-6.0288 3.4665z"/></svg>
+                        <h3 class="align-items-center mb-1 fw-bold">ETEC</h3>
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                    <use xlink:href="#home" />
+                                </svg>
+                                Painel
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-secondary">
+                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                    <use xlink:href="#speedometer2" />
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                    <use xlink:href="#table" />
+                                </svg>
+                                Cadastros
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                    <use xlink:href="#grid" />
+                                </svg>
+                                Turmas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                    <use xlink:href="#people-circle" />
+                                </svg>
+                                Conta
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="container col-xxl-12 px-3 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="assets/img/undraw-hire.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+                        width="700" height="500" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">Cadastro de Alunos</h1>
+                    <p class="lead">Nessa tela você pode visualizar, cadastrar, editar ou remover alunos do sistema.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quo repellat vel voluptatem
+                        deleniti magni dolore iste iure illo ad.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="#" class="btn btn-indigo btn-lg px-4 me-md-2">Novo aluno</a>
+                        <a href="#" class="btn btn-outline-secondary btn-lg px-4">Ver turmas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <div class="container">
+
+                <h3 class=" fw-bold lh-1 mb-3">Alunos ETEC Prefeito Alberto Feres</h3>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-3 mb-2 text-sm-center text-md-start align-items-end">
+                        <button class="btn btn-indigo mt-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
+                            Filtros de Pesquisa
+                        </button>
+                    </div>
+                </div>
+
+                <div class="collapse mb-2" id="collapseFilters">
+                    <div class="card card-body">
+                        <div class="row g-3 align-items-center">
+
+                            <div class="col-3">
+                                <label for="inputFilter" class="col-form-label">Nome:</label>
+                                <input type="text" id="inputFilter" class="form-control"
+                                    aria-describedby="inputHelpFilter" placeholder="Nome do Aluno">
+                            </div>
+
+                            <div class="col-3">
+                                <label for="inputFilter" class="col-form-label">Data Inicial:</label>
+                                <input type="text" id="inputFilter" class="form-control"
+                                    aria-describedby="inputHelpFilter" placeholder="10/05/2021">
+                            </div>
+
+                            <div class="col-3">
+                                <label for="inputFilter" class="col-form-label">Data Final:</label>
+                                <input type="text" id="inputFilter" class="form-control"
+                                    aria-describedby="inputHelpFilter" placeholder="15/05/2021">
+                            </div>
+
+                            <div class="col-3 text-end">
+                                <label for="" style="padding: 7px 0;">&nbsp;</label>
+                                <a href="#" class="btn btn-indigo d-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                    Filtrar Resultados
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="table">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr class="table-dark">
+                                <th scope="col">RA</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Turma</th>
+                                <th scope="col">Dados</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1234567</th>
+                                <td>Nicollas Feitosa</td>
+                                <td>Informática Para Internet - 3 Modulo</td>
+                                <td>contato@nicollasfeitosa.com</td>
+                                <td>
+                                    <div class="text-center">
+                                        <a class="btn btn-outline-dark btn-sm " href="#" role="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                                <path
+                                                    d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
+                                                <path
+                                                    d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
+                                            </svg>
+                                        </a>
+
+                                        <a class="btn btn-outline-primary btn-sm " href="#" role="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                            </svg>
+                                        </a>
+
+                                        <a class="btn btn-outline-danger btn-sm " href="#" role="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1234567</th>
+                                <td>Nicollas Feitosa</td>
+                                <td>Informática Para Internet - 3 Modulo</td>
+                                <td>contato@nicollasfeitosa.com</td>
+                                <td>
+                                    <div class="text-center">
+                                        <a class="btn btn-outline-dark btn-sm " href="#" role="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                                <path
+                                                    d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
+                                                <path
+                                                    d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
+                                            </svg>
+                                        </a>
+
+                                        <a class="btn btn-outline-primary btn-sm " href="#" role="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                            </svg>
+                                        </a>
+
+                                        <a class="btn btn-outline-danger btn-sm " href="#" role="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1234567</th>
+                                <td>Nicollas Feitosa</td>
+                                <td>Informática Para Internet - 3 Modulo</td>
+                                <td>contato@nicollasfeitosa.com</td>
+                                <td>
+                                    <div class="text-center">
+                                        <a class="btn btn-outline-dark btn-sm " href="#" role="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                                <path
+                                                    d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
+                                                <path
+                                                    d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
+                                            </svg>
+                                        </a>
+
+                                        <a class="btn btn-outline-primary btn-sm " href="#" role="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                            </svg>
+                                        </a>
+
+                                        <a class="btn btn-outline-danger btn-sm " href="#" role="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <div class="col-10">
+                        <p class="text-muted">Mostrando de 1 até 10 de 26 registros</p>
+                    </div>
+                    <div class="col-2">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
